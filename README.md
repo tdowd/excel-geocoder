@@ -26,6 +26,5 @@ Import the .bas file into your project. To use Google's Maps API for Work geocod
 
 # TODO
 * Test cases
-* Example cases
 * Functionality for Bing Maps, Data Science Toolkit, etc.
 * Fix for forcing too many requests at one time
