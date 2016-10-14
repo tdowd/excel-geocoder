@@ -14,7 +14,10 @@ This project was influenced by a blog post by josephglover on his blog [Police A
 
 
 # Installation
-Import the .bas file into your project. To use Google's Maps API for Work geocoder, view the code in the VB IDE and flip the `gblnBusiness` constant equal to `1` and insert your Google Client ID and Google Secret Key into the `gstrClientID` and `gstrKey` constants respectively.
+* Import the .bas file into your project.
+* To use Google's Maps API for Work geocoder, view the code in the VB IDE and change the `gintType` constant equal to `1` and insert your Google Client ID and Google Secret Key into the `gstrClientID` and `gstrKey` constants respectively.
+* To use Google's API Premium Plan, change the `gintType` constant equal to `2` and insert your API key into the `gstrKey` constant.
+* To use Google's Free Geocoding API, change the `gintType` constant equal to `0`.
 
 
 # Usage
