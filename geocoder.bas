@@ -4,13 +4,17 @@ Option Explicit
 ' Domain and URL for Google API
 Public Const gstrGeocodingDomain = "https://maps.googleapis.com"
 Public Const gstrGeocodingURL = "/maps/api/geocode/xml?"
-' TODO: Add support for Data Science Toolkit, Bing Geospatial, etc.
 
-' set gblnBusiness = 1 to use the Enterprise Geocoder (requires clientID and key)
-Public Const gblnBusiness = 0
-' clientID and key from Enterprise Geocoder
-Public Const gstrClientID = ""
+' set gintType = 1 to use the Enterprise Geocoder (requires clientID and key)
+' set gintType = 2 to use the API Premium Plan (requires key)
+' leave gintType = 0 to use the free Google geocoder
+Public Const gintType = 0
+
+' key for Enterprise Geocoder or API Premium Plan
 Public Const gstrKey = ""
+
+' clientID for Enterprise Geocoder
+Public Const gstrClientID = ""
 
 
 Function AddressGeocode(address As String) As String
@@ -25,11 +29,13 @@ Function AddressGeocode(address As String) As String
   'Assemble the query string
   strQuery = gstrGeocodingURL
   strQuery = strQuery & "address=" & strAddress
-  If gblnBusiness = 0 Then
+  If gintType = 0 Then ' free Google Geocoder
     strQuery = strQuery & "&sensor=false"
-  Else
+  ElseIf gintType = 1 Then ' Enterprise Geocoder
     strQuery = strQuery & "&client=" & gstrClientID
     strQuery = strQuery & "&signature=" & Base64_HMACSHA1(strQuery, gstrKey)
+  ElseIf gintType = 2 Then ' API Premium Plan
+    strQuery = strQuery & "&key=" & gstrKey
   End If
 
   'define XML and HTTP components
@@ -101,11 +107,13 @@ Function ReverseGeocode(lat As String, lng As String) As String
   'Assemble the query string
   strQuery = gstrGeocodingURL
   strQuery = strQuery & "latlng=" & strLat & "," & strLng
-  If gblnBusiness = 0 Then
+  If gintType = 0 Then ' free Google Geocoder
     strQuery = strQuery & "&sensor=false"
-  Else
+  ElseIf gintType = 1 Then ' Enterprise Geocoder
     strQuery = strQuery & "&client=" & gstrClientID
     strQuery = strQuery & "&signature=" & Base64_HMACSHA1(strQuery, gstrKey)
+  ElseIf gintType = 2 Then ' API Premium Plan
+    strQuery = strQuery & "&key=" & gstrKey
   End If
 
   'define XML and HTTP components
