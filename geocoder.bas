@@ -39,8 +39,8 @@ Function AddressGeocode(address As String) As String
   End If
 
   'define XML and HTTP components
-  Dim googleResult As New MSXML2.DOMDocument
-  Dim googleService As New MSXML2.XMLHTTP
+  Dim googleResult As New MSXML2.DOMDocument60
+  Dim googleService As New MSXML2.XMLHTTP60
   Dim oNodes As MSXML2.IXMLDOMNodeList
   Dim oNode As MSXML2.IXMLDOMNode
 
@@ -117,8 +117,8 @@ Function ReverseGeocode(lat As String, lng As String) As String
   End If
 
   'define XML and HTTP components
-  Dim googleResult As New MSXML2.DOMDocument
-  Dim googleService As New MSXML2.XMLHTTP
+  Dim googleResult As New MSXML2.DOMDocument60
+  Dim googleService As New MSXML2.XMLHTTP60
   Dim oNodes As MSXML2.IXMLDOMNodeList
   Dim oNode As MSXML2.IXMLDOMNode
 
@@ -161,10 +161,10 @@ End Function
 
 Private Function Base64Decode(ByVal strData As String) As Byte()
 
-Dim objXML As MSXML2.DOMDocument
+Dim objXML As MSXML2.DOMDocument60
 Dim objNode As MSXML2.IXMLDOMElement
 
-Set objXML = New MSXML2.DOMDocument
+Set objXML = New MSXML2.DOMDocument60
 Set objNode = objXML.createElement("b64")
 objNode.DataType = "bin.base64"
 objNode.Text = strData
@@ -178,10 +178,10 @@ End Function
 
 Private Function Base64Encode(ByRef arrData() As Byte) As String
 
-Dim objXML As MSXML2.DOMDocument
+Dim objXML As MSXML2.DOMDocument60
 Dim objNode As MSXML2.IXMLDOMElement
 
-Set objXML = New MSXML2.DOMDocument
+Set objXML = New MSXML2.DOMDocument60
 Set objNode = objXML.createElement("b64")
 objNode.DataType = "bin.base64"
 objNode.nodeTypedValue = arrData
