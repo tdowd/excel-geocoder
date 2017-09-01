@@ -17,7 +17,7 @@ Public Const gstrKey = ""
 Public Const gstrClientID = ""
 
 
-Function AddressGeocode(address As String) As String
+Public Function AddressGeocode(address As String) As String
   Dim strAddress As String
   Dim strQuery As String
   Dim strLatitude As String
@@ -93,7 +93,7 @@ URLEncode = TempAns
 End Function
 
 
-Function ReverseGeocode(lat As String, lng As String) As String
+Public Function ReverseGeocode(lat As String, lng As String) As String
   Dim strAddress As String
   Dim strLat As String
   Dim strLng As String
@@ -159,7 +159,7 @@ Public Function Base64_HMACSHA1(ByVal strTextToHash As String, ByVal strSharedSe
 End Function
 
 
-Private Function Base64Decode(ByVal strData As String) As Byte()
+Public Function Base64Decode(ByVal strData As String) As Byte()
 
 Dim objXML As MSXML2.DOMDocument60
 Dim objNode As MSXML2.IXMLDOMElement
@@ -176,7 +176,7 @@ Set objXML = Nothing
 End Function
 
 
-Private Function Base64Encode(ByRef arrData() As Byte) As String
+Public Function Base64Encode(ByRef arrData() As Byte) As String
 
 Dim objXML As MSXML2.DOMDocument60
 Dim objNode As MSXML2.IXMLDOMElement
