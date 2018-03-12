@@ -16,6 +16,12 @@ Public Const gstrKey = ""
 ' clientID for Enterprise Geocoder
 Public Const gstrClientID = ""
 
+' kludge to not overdo the API calls and add a dela
+#If VBA7 Then
+    Public Declare PtrSafe Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
+#Else
+    Public Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
+#End If
 
 Public Function AddressGeocode(address As String) As String
   Dim strAddress As String
@@ -43,6 +49,8 @@ Public Function AddressGeocode(address As String) As String
   Dim googleService As New MSXML2.XMLHTTP60
   Dim oNodes As MSXML2.IXMLDOMNodeList
   Dim oNode As MSXML2.IXMLDOMNode
+
+  Sleep (5)
 
   'create HTTP request to query URL - make sure to have
   googleService.Open "GET", gstrGeocodingDomain & strQuery, False
@@ -121,6 +129,8 @@ Public Function ReverseGeocode(lat As String, lng As String) As String
   Dim googleService As New MSXML2.XMLHTTP60
   Dim oNodes As MSXML2.IXMLDOMNodeList
   Dim oNode As MSXML2.IXMLDOMNode
+
+  Sleep (5)
 
   'create HTTP request to query URL - make sure to have
   googleService.Open "GET", gstrGeocodingDomain & strQuery, False
