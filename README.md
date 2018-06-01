@@ -10,7 +10,7 @@ This project was influenced by a blog post by josephglover on his blog [Police A
 
 # Prerequisites
 * Enable developer tab in Excel. Instructions from MSFT can be [found here](https://msdn.microsoft.com/en-us/library/bb608625.aspx).
-* Within the VB IDE, add "Microsoft XML, v6.0" as a Reference. Can be found within *Tools* - *References*.
+* Within the VB IDE, go to setup VBA module and run the AddReference() Sub
 
 
 # Installation
