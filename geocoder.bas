@@ -16,7 +16,7 @@ Public Const gstrKey = ""
 ' clientID for Enterprise Geocoder
 Public Const gstrClientID = ""
 
-' kludge to not overdo the API calls and add a dela
+' kludge to not overdo the API calls and add a delay
 #If VBA7 Then
     Public Declare PtrSafe Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
 #Else
