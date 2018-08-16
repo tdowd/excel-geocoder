@@ -5,7 +5,7 @@ A VBA application for geocoding and reverse geocoding in Excel. Supports both Go
 # Background
 GIS and geospatial data science applications will usually require geocoding of locations or reverse geocoding of latitude/longitude at some point in the analysis. While most of this analysis is frequently done in something a little more involved than Excel (python, arcGIS, ESRI, etc.), sometimes I have found that doing something quick with a dataset in Excel can be more efficient than working with a SQL DB or creating a python script.
 
-This project was influenced by a blog post by josephglover on his blog [Police Analyst](http://policeanalyst.com/using-the-google-geocoding-api-in-excel/). josephglover's module on accessing the free Google geocoder was the foundation which I used to make the reverse geocoder and to add flexibility to use Google's Maps API for Work Enterprise geocoder.
+This project was influenced by a blog post by josephglover. josephglover's module on accessing the free Google geocoder was the foundation which I used to make the reverse geocoder and to add flexibility to use Google's Maps API for Work Enterprise geocoder.
 
 
 # Prerequisites
