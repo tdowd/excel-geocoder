@@ -7,10 +7,10 @@ Public Const gstrGeocodingURL = "/maps/api/geocode/xml?"
 
 ' set gintType = 1 to use the Enterprise Geocoder (requires clientID and key)
 ' set gintType = 2 to use the API Premium Plan (requires key)
-' leave gintType = 0 to use the free Google geocoder
+' leave gintType = 0 to use the free-ish Google geocoder (now requires a key! see https://developers.google.com/maps/documentation/geocoding/get-api-key)
 Public Const gintType = 0
 
-' key for Enterprise Geocoder or API Premium Plan
+' key for Enterprise Geocoder or API Premium Plan or free-ish geocoder
 Public Const gstrKey = ""
 
 ' clientID for Enterprise Geocoder
@@ -35,8 +35,8 @@ Public Function AddressGeocode(address As String) As String
   'Assemble the query string
   strQuery = gstrGeocodingURL
   strQuery = strQuery & "address=" & strAddress
-  If gintType = 0 Then ' free Google Geocoder
-    strQuery = strQuery & "&sensor=false"
+  If gintType = 0 Then ' free-ish Google Geocoder - now requires an API key!
+    strQuery = strQuery & "&key=" & gstrKey
   ElseIf gintType = 1 Then ' Enterprise Geocoder
     strQuery = strQuery & "&client=" & gstrClientID
     strQuery = strQuery & "&signature=" & Base64_HMACSHA1(strQuery, gstrKey)
@@ -115,8 +115,8 @@ Public Function ReverseGeocode(lat As String, lng As String) As String
   'Assemble the query string
   strQuery = gstrGeocodingURL
   strQuery = strQuery & "latlng=" & strLat & "," & strLng
-  If gintType = 0 Then ' free Google Geocoder
-    strQuery = strQuery & "&sensor=false"
+  If gintType = 0 Then ' free-ish Google Geocoder - now requires an API key!
+    strQuery = strQuery & "&key=" & gstrKey
   ElseIf gintType = 1 Then ' Enterprise Geocoder
     strQuery = strQuery & "&client=" & gstrClientID
     strQuery = strQuery & "&signature=" & Base64_HMACSHA1(strQuery, gstrKey)
